@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fuction call</title>
+</head>
+<body>
+    <script>
+        let product={
+            campany:'mango',
+            price:'439',           
+             item_name:'t-shirt',
+             displayprice: function() {
+              console.log(` price of ₹${this.price}`);// this likhne sabhi product
+        
+             }
+        };
+        product.displayprice();
+    </script>
+
+    
+</body>
+</html>
