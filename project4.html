@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Game</title>
+</head>
+<body>
+    <script>
+        let score = {
+            win: 0,
+            lost: 0,
+            tie: 0,
+            displayScore: function () {
+                return `No of matches Won: ${this.win}, lost: ${this.lost}, tie: ${this.tie}`;
+            }
+        };
+
+        function generateComputerChoice() {
+            let randomNumber = Math.random() * 3;
+            if (randomNumber >= 0 && randomNumber < 1) {
+                return 'bat';
+            } else if (randomNumber >= 1 && randomNumber < 2) {
+                return 'ball';
+            } else {
+                return 'stump';
+            }
+        }
+
+        function getResult(userMove, computerMove) {
+            if (userMove === 'bat') {
+                if (computerMove === 'ball') {
+                    score.win++;
+                    return 'User won';
+                } else if (computerMove === 'bat') {
+                    score.tie++;
+                    return "It's a tie";
+                } else if (computerMove === 'stump') {
+                    score.lost++;
+                    return 'User lost';
+                }
+            }
+
+            // Optional: add rules for 'ball' and 'stump' if needed
+        }
+
+        function showResult(userMove, computerMove, result) {
+            alert(`You have chosen ${userMove}.\nComputer choice is ${computerMove}.\n${result}\n\n${score.displayScore()}`);
+        }
+
+        // ✅ Example Test: call these when page loads
+        let userMove = 'bat'; // ← Change this to 'ball' or 'stump' to test other outcomes
+        let computerMove = generateComputerChoice();
+        let result = getResult(userMove, computerMove);
+        showResult(userMove, computerMove, result);
+
+    </script>
+</body>
+
+</html>
